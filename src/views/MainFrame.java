@@ -29,7 +29,7 @@ public class MainFrame extends JFrame {
   private void setFrame() {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setSize(400, 300);
-    this.setTitle("Pick your fruits");
+    this.setTitle("TEMPLATE");
     this.setVisible(true);
 
     // layout for window
