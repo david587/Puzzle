@@ -24,6 +24,8 @@ public class MainFrame extends JFrame {
     this.mainPanel.setLayout(
       new BorderLayout()
     );
+
+    this.add(this.mainPanel);
   }
 
   private void setFrame() {
