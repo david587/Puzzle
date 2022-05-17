@@ -10,6 +10,10 @@ public class MainController {
   MainModel mainModel;
 
   JButton[] buttons;
+
+  enum Dir {
+    UP, DOWN, LEFT, RIGHT, NONE
+  }
   
   public MainController() {
     this.mainFrame = new MainFrame();
@@ -23,15 +27,44 @@ public class MainController {
   private void actionHandler(ActionEvent action) {
     JButton clickedButton = (JButton) action.getSource();
 
-    int x = clickedButton.getLocation().x;
-    int y = clickedButton.getLocation().y;
 
-    System.out.println(x + " " + y);
+
+    checkDirection(clickedButton);
   }
 
   private void setEvents() {
     for (int i = 0; i < buttons.length; i++) {
       buttons[i].addActionListener(action -> actionHandler(action));
     }
+  }
+
+  private void checkDirection(JButton button) {
+
+    int x = button.getLocation().x;
+    int y = button.getLocation().y;
+
+    System.out.println(x + " " + y);
+
+    Dir direction = Dir.NONE;
+
+    // check if button can move to the right
+
+    if (x < 750 && canMoveToRight(x, y)) {
+      direction = Dir.RIGHT;
+      System.out.println("Button can move to the right");
+    }
+  }
+
+  private boolean canMoveToRight(int currentX, int currentY) {
+    boolean matches = true;
+    for (int i = 0; i < buttons.length; i++) {
+      int x = buttons[i].getLocation().x;
+      int y = buttons[i].getLocation().y;
+
+      if (currentX + 250 == x && currentY == y) {
+        matches = false;
+      }
+    }
+    return matches;
   }
 }
