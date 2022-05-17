@@ -13,7 +13,7 @@ public class MainFrame extends JFrame {
 
   JButton goButton;
 
-  JButton[] buttons;
+  public JButton[] buttons;
   ImageIcon[] images;
 
   String[] imageNames = {
@@ -45,6 +45,7 @@ public class MainFrame extends JFrame {
 
     for (int i = 0; i < buttons.length; i++) {
       buttons[i] = new JButton(images[i]);
+
     }
 
   }
