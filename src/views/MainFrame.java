@@ -3,6 +3,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import java.awt.Point;
 
 public class MainFrame extends JFrame {
   JPanel mainPanel;
@@ -13,17 +14,41 @@ public class MainFrame extends JFrame {
   public JButton[] buttons;
   ImageIcon[] images;
 
+  // scaleable puzzle
+
+  public final int IMAGE_WIDTH = 50;
+  public final int IMAGE_HEIGHT = 50;
+
   String[] imageNames = {
     "1_1.png", "1_2.png", "1_3.png", "1_4.png",
     "2_1.png", "2_2.png", "2_3.png", "2_4.png",
     "3_1.png", "3_2.png", "3_3.png", "3_4.png",
     "4_1.png", "4_2.png", "4_3.png"
-
   };
 
-  public final int IMAGE_WIDTH = 250;
+  // let x, y coordinates come from array of Points
+  //replace setBounds with setLocation(Point)
 
-  public final int IMAGE_HEIGHT = 250;
+  Point[] baseCoordinates = {
+    new Point(0, 0),
+    new Point(IMAGE_WIDTH, 0),
+    new Point(IMAGE_WIDTH * 2, 0),
+    new Point(IMAGE_WIDTH * 3, 0),
+
+    new Point(0, 0),
+    new Point(IMAGE_WIDTH, IMAGE_HEIGHT),
+    new Point(IMAGE_WIDTH * 2, IMAGE_HEIGHT),
+    new Point(IMAGE_WIDTH * 3, IMAGE_HEIGHT),
+
+    new Point(0, IMAGE_HEIGHT * 2),
+    new Point(IMAGE_WIDTH, IMAGE_HEIGHT * 2),
+    new Point(IMAGE_WIDTH * 2, IMAGE_HEIGHT * 2),
+    new Point(IMAGE_WIDTH * 3, IMAGE_HEIGHT * 2),
+
+    new Point(0, IMAGE_HEIGHT * 3),
+    new Point(IMAGE_WIDTH, IMAGE_HEIGHT * 3),
+    new Point(IMAGE_WIDTH * 2, IMAGE_HEIGHT * 3),
+  };
 
   public MainFrame() {
 
@@ -46,6 +71,7 @@ public class MainFrame extends JFrame {
     }
 
   }
+
 
   private void setBasePositions() {
     buttons[0].setBounds(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_1
