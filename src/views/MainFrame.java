@@ -3,9 +3,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 
 public class MainFrame extends JFrame {
   JPanel mainPanel;
@@ -24,9 +21,9 @@ public class MainFrame extends JFrame {
 
   };
 
-  final int IMAGE_WIDTH = 250;
+  public final int IMAGE_WIDTH = 250;
 
-  final int IMAGE_HEIGHT = 250;
+  public final int IMAGE_HEIGHT = 250;
 
   public MainFrame() {
 

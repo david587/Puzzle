@@ -14,12 +14,18 @@ public class MainController {
   enum Dir {
     UP, DOWN, LEFT, RIGHT, NONE
   }
+
+  final int WIDTH;
+  final int HEIGHT;
   
   public MainController() {
     this.mainFrame = new MainFrame();
     this.mainModel = new MainModel();
     
     buttons = mainFrame.buttons;
+
+    WIDTH = mainFrame.IMAGE_WIDTH;
+    HEIGHT = mainFrame.IMAGE_HEIGHT;
 
     this.setEvents();
   }
@@ -47,7 +53,7 @@ public class MainController {
 
     // check if button can move to the right
 
-    if (x < 750 && canMoveToRight(x, y)) {
+    if (x < WIDTH * 3 && canMoveToRight(x, y)) {
       direction = Dir.RIGHT;
       System.out.println("Button can move to the right");
     }
@@ -61,7 +67,7 @@ public class MainController {
 
     // check if button can move down
 
-    if (y < 750 && canMoveDown(x, y)) {
+    if (y < HEIGHT * 3 && canMoveDown(x, y)) {
       direction = Dir.DOWN;
       System.out.println("Button can move down");
     }
@@ -80,7 +86,7 @@ public class MainController {
       int x = buttons[i].getLocation().x;
       int y = buttons[i].getLocation().y;
 
-      if (currentX + 250 == x && currentY == y) {
+      if (currentX + WIDTH == x && currentY == y) {
         matches = false;
       }
     }
@@ -94,7 +100,7 @@ public class MainController {
       int x = buttons[i].getLocation().x;
       int y = buttons[i].getLocation().y;
 
-      if (currentX - 250 == x && currentY == y) {
+      if (currentX - WIDTH == x && currentY == y) {
         matches = false;
       }
 
@@ -110,7 +116,7 @@ public class MainController {
       int x = buttons[i].getLocation().x;
       int y = buttons[i].getLocation().y;
 
-      if (currentX == x && currentY + 250 == y) {
+      if (currentX == x && currentY + HEIGHT == y) {
         matches = false;
       }
     }
@@ -125,7 +131,7 @@ public class MainController {
       int x = buttons[i].getLocation().x;
       int y = buttons[i].getLocation().y;
 
-      if (currentX == x && currentY - 250 == y) {
+      if (currentX == x && currentY - HEIGHT == y) {
         matches = false;
       }
     }
@@ -145,19 +151,19 @@ public class MainController {
 
     if (direction == Dir.RIGHT) {
 
-      button.setLocation(x + 250, y);
+      button.setLocation(x + WIDTH, y);
     }
 
     if (direction == Dir.LEFT) {
-      button.setLocation(x - 250, y);
+      button.setLocation(x - WIDTH, y);
     }
 
     if (direction == Dir.UP) {
-      button.setLocation(x, y - 250);
+      button.setLocation(x, y - HEIGHT);
     }
 
     if (direction == Dir.DOWN) {
-      button.setLocation(x, y + 250);
+      button.setLocation(x, y + HEIGHT);
     }
 
   }
