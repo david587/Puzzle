@@ -98,11 +98,12 @@ public class MainFrame extends JFrame {
   }
 
   private void setFrame() {
+    this.setJMenuBar(new MenuBar());
     // layout for window
     this.setLayout(null);
 
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setSize(IMAGE_WIDTH * 4 + 25, IMAGE_HEIGHT * 4 + 60);
+    this.setSize(IMAGE_WIDTH * 4 + 25, IMAGE_HEIGHT * 4 + 90);
     this.setTitle("PUZZLE");
     this.setVisible(true);
 
