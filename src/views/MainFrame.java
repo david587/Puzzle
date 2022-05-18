@@ -16,8 +16,8 @@ public class MainFrame extends JFrame {
 
   // scaleable puzzle
 
-  public final int IMAGE_WIDTH = 50;
-  public final int IMAGE_HEIGHT = 50;
+  public final int IMAGE_WIDTH = 100;
+  public final int IMAGE_HEIGHT = 100;
 
   String[] imageNames = {
     "1_1.png", "1_2.png", "1_3.png", "1_4.png",
@@ -35,7 +35,7 @@ public class MainFrame extends JFrame {
     new Point(IMAGE_WIDTH * 2, 0),
     new Point(IMAGE_WIDTH * 3, 0),
 
-    new Point(0, 0),
+    new Point(0, IMAGE_HEIGHT),
     new Point(IMAGE_WIDTH, IMAGE_HEIGHT),
     new Point(IMAGE_WIDTH * 2, IMAGE_HEIGHT),
     new Point(IMAGE_WIDTH * 3, IMAGE_HEIGHT),
@@ -53,7 +53,7 @@ public class MainFrame extends JFrame {
   public MainFrame() {
 
     setButtons();
-    setBasePositions();
+    // setBasePositions();
     setMainPanel();
     setFrame();
   }
@@ -68,32 +68,36 @@ public class MainFrame extends JFrame {
     for (int i = 0; i < buttons.length; i++) {
       buttons[i] = new JButton(images[i]);
 
+      // set coordinates
+      buttons[i].setLocation(baseCoordinates[i]);
+
+      // set size 
+      buttons[i].setSize(IMAGE_WIDTH, IMAGE_HEIGHT);
+
     }
 
   }
 
+  // private void setBasePositions() {
+  //   buttons[0].setBounds(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_1
+  //   buttons[1].setBounds(250, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_2
+  //   buttons[2].setBounds(500, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_3
+  //   buttons[3].setBounds(750, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_4
 
-  private void setBasePositions() {
-    buttons[0].setBounds(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_1
-    buttons[1].setBounds(250, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_2
-    buttons[2].setBounds(500, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_3
-    buttons[3].setBounds(750, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_4
+  //   buttons[4].setBounds(0, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_1
+  //   buttons[5].setBounds(250, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_2
+  //   buttons[6].setBounds(500, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_3
+  //   buttons[7].setBounds(750, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_4
 
-    buttons[4].setBounds(0, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_1
-    buttons[5].setBounds(250, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_2
-    buttons[6].setBounds(500, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_3
-    buttons[7].setBounds(750, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_4
+  //   buttons[8].setBounds(0, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_1
+  //   buttons[9].setBounds(250, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_2
+  //   buttons[10].setBounds(500, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_3
+  //   buttons[11].setBounds(750, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_4
 
-    buttons[8].setBounds(0, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_1
-    buttons[9].setBounds(250, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_2
-    buttons[10].setBounds(500, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_3
-    buttons[11].setBounds(750, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_4
-
-    buttons[12].setBounds(0, 750, IMAGE_WIDTH, IMAGE_HEIGHT); // 4_1
-    buttons[13].setBounds(250, 750, IMAGE_WIDTH, IMAGE_HEIGHT); // 4_2
-    buttons[14].setBounds(500, 750, IMAGE_WIDTH, IMAGE_HEIGHT); // 4_3
-
-  }
+  //   buttons[12].setBounds(0, 750, IMAGE_WIDTH, IMAGE_HEIGHT); // 4_1
+  //   buttons[13].setBounds(250, 750, IMAGE_WIDTH, IMAGE_HEIGHT); // 4_2
+  //   buttons[14].setBounds(500, 750, IMAGE_WIDTH, IMAGE_HEIGHT); // 4_3
+  // }
 
   private void setMainPanel() {
     this.mainPanel = new JPanel();
