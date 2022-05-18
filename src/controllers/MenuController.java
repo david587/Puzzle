@@ -14,9 +14,16 @@ public class MenuController {
         // exit
 
         menuBar.exitMenuItem.addActionListener(action -> exitMenuAction());
+        menuBar.shuffleMenuItem.addActionListener(action -> {
+            shuffleMenuAction();
+        });
 }
 
     private void exitMenuAction() {
         System.exit(0);
+    }
+
+    private void shuffleMenuAction() {
+        System.out.println("Mixing");
     }
 }
