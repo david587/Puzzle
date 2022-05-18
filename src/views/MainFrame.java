@@ -54,7 +54,6 @@ public class MainFrame extends JFrame {
   public MainFrame() {
 
     setButtons();
-    // setBasePositions();
     setMainPanel();
     setFrame();
   }
@@ -87,7 +86,11 @@ public class MainFrame extends JFrame {
     this.mainPanel = new JPanel();
 
     this.mainPanel.setLayout(null);
-    this.mainPanel.setBounds(10, 10, 1020, 1020);
+    this.mainPanel.setBounds(
+      10, 
+      10, 
+      IMAGE_WIDTH * 4 + 20, 
+      IMAGE_HEIGHT * 4 + 50);
     for (int i = 0; i < buttons.length; i++) {
       this.mainPanel.add(buttons[i]);
     }
@@ -95,13 +98,14 @@ public class MainFrame extends JFrame {
   }
 
   private void setFrame() {
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setSize(1100, 1200);
-    this.setTitle("TEMPLATE");
-    this.setVisible(true);
-
     // layout for window
     this.setLayout(null);
+
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.setSize(IMAGE_WIDTH * 4 + 25, IMAGE_HEIGHT * 4 + 60);
+    this.setTitle("PUZZLE");
+    this.setVisible(true);
+
   }
 
   private ImageIcon resizeImageIcon(
