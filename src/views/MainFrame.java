@@ -103,7 +103,7 @@ public class MainFrame extends JFrame {
     this.setLayout(null);
 
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setSize(IMAGE_WIDTH * 4 + 25, IMAGE_HEIGHT * 4 + 90);
+    this.setSize(IMAGE_WIDTH * 4 + 25, IMAGE_HEIGHT * 4 + 80);
     this.setTitle("PUZZLE");
     this.setVisible(true);
 

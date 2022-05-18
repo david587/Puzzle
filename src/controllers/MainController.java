@@ -28,6 +28,7 @@ public class MainController {
     HEIGHT = mainFrame.IMAGE_HEIGHT;
 
     this.setEvents();
+    new MenuController(mainFrame);
   }
 
   private void actionHandler(ActionEvent action) {

@@ -7,9 +7,9 @@ import javax.swing.JMenuItem;
 public class MenuBar extends JMenuBar {
 
   JMenu fileMenu;
-    JMenuItem exitMenuItem;
+    public JMenuItem exitMenuItem;
   JMenu toolsMenu;
-    JMenuItem shuffleMenuItem;
+    public JMenuItem shuffleMenuItem;
   JMenu helpMenu;
 
   public MenuBar() {
