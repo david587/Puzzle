@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.Point;
+import java.awt.Image;
 
 public class MainFrame extends JFrame {
   JPanel mainPanel;
@@ -66,7 +67,11 @@ public class MainFrame extends JFrame {
     buttons = new JButton[15];
 
     for (int i = 0; i < buttons.length; i++) {
-      buttons[i] = new JButton(images[i]);
+      // resize images here 
+      ImageIcon imageIcon = resizeImageIcon(images[i], IMAGE_WIDTH, IMAGE_HEIGHT);
+
+      // attach resized icon to button
+      buttons[i] = new JButton(imageIcon);
 
       // set coordinates
       buttons[i].setLocation(baseCoordinates[i]);
@@ -77,27 +82,6 @@ public class MainFrame extends JFrame {
     }
 
   }
-
-  // private void setBasePositions() {
-  //   buttons[0].setBounds(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_1
-  //   buttons[1].setBounds(250, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_2
-  //   buttons[2].setBounds(500, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_3
-  //   buttons[3].setBounds(750, 0, IMAGE_WIDTH, IMAGE_HEIGHT); // 1_4
-
-  //   buttons[4].setBounds(0, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_1
-  //   buttons[5].setBounds(250, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_2
-  //   buttons[6].setBounds(500, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_3
-  //   buttons[7].setBounds(750, 250, IMAGE_WIDTH, IMAGE_HEIGHT); // 2_4
-
-  //   buttons[8].setBounds(0, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_1
-  //   buttons[9].setBounds(250, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_2
-  //   buttons[10].setBounds(500, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_3
-  //   buttons[11].setBounds(750, 500, IMAGE_WIDTH, IMAGE_HEIGHT); // 3_4
-
-  //   buttons[12].setBounds(0, 750, IMAGE_WIDTH, IMAGE_HEIGHT); // 4_1
-  //   buttons[13].setBounds(250, 750, IMAGE_WIDTH, IMAGE_HEIGHT); // 4_2
-  //   buttons[14].setBounds(500, 750, IMAGE_WIDTH, IMAGE_HEIGHT); // 4_3
-  // }
 
   private void setMainPanel() {
     this.mainPanel = new JPanel();
@@ -118,5 +102,21 @@ public class MainFrame extends JFrame {
 
     // layout for window
     this.setLayout(null);
+  }
+
+  private ImageIcon resizeImageIcon(
+    ImageIcon imageIcon, 
+    int width, 
+    int height) {
+      // convert to Image
+      Image image = imageIcon.getImage();
+
+      // resize as Image
+      Image resizedImage = image.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+
+      // convert to ImageIcon
+      ImageIcon resizedImageIcon = new ImageIcon(resizedImage);
+
+      return resizedImageIcon;
   }
 }
