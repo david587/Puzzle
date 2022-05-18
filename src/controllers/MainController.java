@@ -70,6 +70,8 @@ public class MainController {
       direction = Dir.UP;
       System.out.println("Button can move up");
     }
+
+    moveButton(direction, button);
   }
 
   private boolean canMoveToRight(int currentX, int currentY) {
@@ -129,6 +131,35 @@ public class MainController {
     }
 
     return matches;
+  }
+
+  // move button
+
+  private void moveButton(Dir direction, JButton button) {
+    // original clicked button x y coordinates
+
+    int x = button.getLocation().x;
+    int y = button.getLocation().y;
+
+    // verify direction
+
+    if (direction == Dir.RIGHT) {
+
+      button.setLocation(x + 250, y);
+    }
+
+    if (direction == Dir.LEFT) {
+      button.setLocation(x - 250, y);
+    }
+
+    if (direction == Dir.UP) {
+      button.setLocation(x, y - 250);
+    }
+
+    if (direction == Dir.DOWN) {
+      button.setLocation(x, y + 250);
+    }
+
   }
 
 }
