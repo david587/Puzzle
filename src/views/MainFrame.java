@@ -21,10 +21,10 @@ public class MainFrame extends JFrame {
   public final int IMAGE_HEIGHT = 100;
 
   String[] imageNames = {
-    "1_1.png", "1_2.png", "1_3.png", "1_4.png",
-    "2_1.png", "2_2.png", "2_3.png", "2_4.png",
-    "3_1.png", "3_2.png", "3_3.png", "3_4.png",
-    "4_1.png", "4_2.png", "4_3.png"
+    "1_1.jpg", "1_2.jpg", "1_3.jpg", "1_4.jpg",
+    "2_1.jpg", "2_2.jpg", "2_3.jpg", "2_4.jpg",
+    "3_1.jpg", "3_2.jpg", "3_3.jpg", "3_4.jpg",
+    "4_1.jpg", "4_2.jpg", "4_3.jpg"
   };
 
   // let x, y coordinates come from array of Points
@@ -61,7 +61,7 @@ public class MainFrame extends JFrame {
   private void setButtons() {
     images = new ImageIcon[15];
     for (int i = 0; i< images.length; i++) {
-      images[i] = new ImageIcon("src/static/images/" + imageNames[i]);
+      images[i] = new ImageIcon("src/static/img/" + imageNames[i]);
     }
     buttons = new JButton[15];
 
